@@ -6,4 +6,10 @@
     <select id="validate" resultType="Userinfo">
         select * from userinfo where account=#{user} and password=#{pwd}
     </select>
+    <select id="selUser" resultType="Userinfo">
+        select * from userinfo where account=#{user}
+    </select>
+    <select id="getPuser" resultType="Userinfo">
+        select * from userinfo
+    </select>
 </mapper>

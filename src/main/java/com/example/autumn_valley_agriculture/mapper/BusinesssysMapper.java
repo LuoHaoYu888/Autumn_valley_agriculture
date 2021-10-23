@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface BusinesssysMapper {
     Userinfo validate(@Param("user") String user,@Param("pwd") String pwd);
+    Userinfo selUser(@Param("user")String user);
+    List<Userinfo> getPuser();
 }

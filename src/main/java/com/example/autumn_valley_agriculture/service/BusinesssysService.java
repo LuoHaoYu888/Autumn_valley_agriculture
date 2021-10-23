@@ -8,4 +8,6 @@ import java.util.List;
 public interface BusinesssysService {
     Userinfo validate(String user, String pwd) throws JsonProcessingException;
     void del();
+    Userinfo selUser(String user);
+    List<Userinfo> getPuser();
 }

@@ -30,6 +30,15 @@ class AutumnValleyAgricultureApplicationTests {
     }
 
     @Test
+    public void test3(){
+        System.out.println(businesssysService.selUser("wangwu18888"));
+    }
+    @Test
+    public void test4(){
+        System.out.println(businesssysController.getPuser().getList());
+    }
+
+    @Test
     public void test2(){
         businesssysService.del();
     }

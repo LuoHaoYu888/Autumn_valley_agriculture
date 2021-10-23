@@ -10,6 +10,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BusinesssysServiceImpl implements BusinesssysService {
 
@@ -24,5 +26,16 @@ public class BusinesssysServiceImpl implements BusinesssysService {
     @RemoveKey(CacheKey.HD_validate)
     public void del(){
 
+    }
+
+    @Override
+    @RedisCache(CacheKey.HD_getUser)
+    public Userinfo selUser(String user) {
+        return businesssysMapper.selUser(user);
+    }
+
+    @Override
+    public List<Userinfo> getPuser() {
+        return businesssysMapper.getPuser();
     }
 }
