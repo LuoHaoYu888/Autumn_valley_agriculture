@@ -15,7 +15,7 @@ public class CorsConfig implements WebMvcConfigurer {
 	//解决跨域问题
 
 	private CorsConfiguration buildConfig() {
-		System.out.println(111);
+		System.out.println();
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
 		corsConfiguration.addAllowedOrigin("*");
 		corsConfiguration.addAllowedHeader("*");
