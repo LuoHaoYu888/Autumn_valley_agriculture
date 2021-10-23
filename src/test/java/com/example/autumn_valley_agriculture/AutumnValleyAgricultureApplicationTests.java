@@ -1,13 +1,9 @@
 package com.example.autumn_valley_agriculture;
 
-import com.example.autumn_valley_agriculture.core.CacheKey;
-import com.example.autumn_valley_agriculture.core.RemoveKey;
-import com.example.autumn_valley_agriculture.mapper.StudentMapper;
-import com.example.autumn_valley_agriculture.service.StudentService;
+import com.example.autumn_valley_agriculture.controller.BusinesssysController;
+import com.example.autumn_valley_agriculture.service.BusinesssysService;
 import com.example.autumn_valley_agriculture.util.RedisUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import lombok.extern.log4j.Log4j;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,15 +12,18 @@ import org.springframework.boot.test.context.SpringBootTest;
 class AutumnValleyAgricultureApplicationTests {
 
     @Autowired
-    private StudentService studentService;
+    private BusinesssysService businesssysService;
 
     @Autowired
     private RedisUtil redisUtil;
 
+    @Autowired
+    private BusinesssysController businesssysController;
+
     @Test
     void contextLoads() {
         try {
-            System.out.println(studentService.getAll());
+            System.out.println(businesssysController.validate("17766666666","123456"));
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
@@ -32,7 +31,7 @@ class AutumnValleyAgricultureApplicationTests {
 
     @Test
     public void test2(){
-        studentService.del();
+        businesssysService.del();
     }
 
 }
