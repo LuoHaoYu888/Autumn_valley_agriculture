@@ -23,18 +23,19 @@ public class BusinesssysServiceImpl implements BusinesssysService {
         return businesssysMapper.validate(user,pwd);
     }
 
-    @RemoveKey(CacheKey.HD_validate)
+    @RemoveKey(CacheKey.HD_getUser)
     public void del(){
 
     }
 
     @Override
-    @RedisCache(CacheKey.HD_getUser)
+    //@RedisCache(CacheKey.HD_getUser)
     public Userinfo selUser(String user) {
         return businesssysMapper.selUser(user);
     }
 
     @Override
+    //@RedisCache(CacheKey.HD_Selalluser)
     public List<Userinfo> getPuser() {
         return businesssysMapper.getPuser();
     }

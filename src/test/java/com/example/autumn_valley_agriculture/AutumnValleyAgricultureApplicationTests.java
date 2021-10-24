@@ -8,6 +8,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @SpringBootTest
 class AutumnValleyAgricultureApplicationTests {
 
@@ -35,7 +38,6 @@ class AutumnValleyAgricultureApplicationTests {
     }
     @Test
     public void test4(){
-        System.out.println(businesssysController.getPuser().getList());
     }
 
     @Test
