@@ -38,6 +38,7 @@ class AutumnValleyAgricultureApplicationTests {
     }
     @Test
     public void test4(){
+        //System.out.println(businesssysController.selVal("张"));
     }
 
     @Test

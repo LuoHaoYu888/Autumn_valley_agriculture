@@ -11,4 +11,5 @@ public interface BusinesssysMapper {
     Userinfo validate(@Param("user") String user,@Param("pwd") String pwd);
     Userinfo selUser(@Param("user")String user);
     List<Userinfo> getPuser();
+    List<Userinfo> selNameVal(@Param("val") String val);
 }

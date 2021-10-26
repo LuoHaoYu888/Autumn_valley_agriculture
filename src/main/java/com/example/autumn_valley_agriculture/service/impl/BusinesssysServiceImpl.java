@@ -6,7 +6,9 @@ import com.example.autumn_valley_agriculture.core.RemoveKey;
 import com.example.autumn_valley_agriculture.mapper.BusinesssysMapper;
 import com.example.autumn_valley_agriculture.pojo.Userinfo;
 import com.example.autumn_valley_agriculture.service.BusinesssysService;
+import com.example.autumn_valley_agriculture.util.PageUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,8 +37,21 @@ public class BusinesssysServiceImpl implements BusinesssysService {
     }
 
     @Override
-    //@RedisCache(CacheKey.HD_Selalluser)
-    public List<Userinfo> getPuser() {
-        return businesssysMapper.getPuser();
+    public List<Userinfo> selNameVal(String val) {
+        return businesssysMapper.selNameVal(val);
+    }
+
+    @Override
+    public PageInfo<Userinfo> getCurrentPageUserInfo(Integer currentPage, Integer pageSize,String val) {
+        List<Userinfo> allBooks=null;
+        if (val==null){
+            allBooks= businesssysMapper.getPuser();
+        }else{
+            allBooks= businesssysMapper.selNameVal(val);
+        }
+
+        PageInfo page = new PageUtil<Userinfo>().getPage(currentPage, pageSize, allBooks);
+        System.out.println(page);
+        return page;
     }
 }
