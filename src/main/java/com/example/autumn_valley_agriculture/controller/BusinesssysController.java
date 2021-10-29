@@ -51,9 +51,7 @@ public class BusinesssysController {
 
     @GetMapping("/refreshto")
     public PageInfo<Userinfo> refreshTo(Integer currentPage, Integer pageSize,String val){
-        System.out.println(val);
         PageInfo<Userinfo> p = businesssysService.getCurrentPageUserInfo(currentPage, pageSize,val);
-        System.out.println(p);
         return p;
     }
 }

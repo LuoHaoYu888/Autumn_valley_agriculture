@@ -51,7 +51,6 @@ public class BusinesssysServiceImpl implements BusinesssysService {
         }
 
         PageInfo page = new PageUtil<Userinfo>().getPage(currentPage, pageSize, allBooks);
-        System.out.println(page);
         return page;
     }
 }
