@@ -12,4 +12,5 @@ public interface BusinesssysMapper {
     Userinfo selUser(@Param("user")String user);
     List<Userinfo> getPuser();
     List<Userinfo> selNameVal(@Param("val") String val);
+    int addUserInfo(@Param("userinfo")Userinfo userinfo);
 }

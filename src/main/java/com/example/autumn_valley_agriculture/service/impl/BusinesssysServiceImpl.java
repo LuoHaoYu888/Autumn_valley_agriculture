@@ -31,8 +31,8 @@ public class BusinesssysServiceImpl implements BusinesssysService {
     }
 
     @Override
-    //@RedisCache(CacheKey.HD_getUser)
     public Userinfo selUser(String user) {
+        System.out.println(user);
         return businesssysMapper.selUser(user);
     }
 
@@ -52,5 +52,11 @@ public class BusinesssysServiceImpl implements BusinesssysService {
 
         PageInfo page = new PageUtil<Userinfo>().getPage(currentPage, pageSize, allBooks);
         return page;
+    }
+
+    @Override
+//    @RemoveKey(CacheKey.HD_getUser)
+    public int addUserInfo(Userinfo userinfo) {
+        return businesssysMapper.addUserInfo(userinfo);
     }
 }

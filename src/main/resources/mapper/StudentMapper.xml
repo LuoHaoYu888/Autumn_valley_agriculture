@@ -15,4 +15,17 @@
     <select id="selNameVal" resultType="Userinfo">
         select * from userinfo where name like concat('%',#{val},'%') or account like concat('%',#{val},'%')
     </select>
+    <insert id="addUserInfo">
+        insert userinfo values (null ,
+        #{userinfo.name},
+        #{userinfo.account},
+        #{userinfo.password},
+        #{userinfo.isAdmin},
+        #{userinfo.role},
+        #{userinfo.useStatus},
+        #{userinfo.phone},
+        #{userinfo.address},
+        #{userinfo.content}
+        )
+    </insert>
 </mapper>

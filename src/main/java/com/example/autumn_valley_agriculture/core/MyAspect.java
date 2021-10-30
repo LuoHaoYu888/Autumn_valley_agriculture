@@ -38,7 +38,7 @@ public class MyAspect {
                 //获得将被调用方法的返回类型
                 Class<?> returnType = ((MethodSignature) pjp.getSignature()).getMethod().getReturnType();
                 Object o = JacksonUtil.toObject(json, returnType);
-                log.warn("redis返回数据");
+                System.out.println("redis返回数据");
                 return o;
             }
             proceed = pjp.proceed();
@@ -53,7 +53,7 @@ public class MyAspect {
         }finally {
             //最终通知
         }
-        log.warn("数据库返回数据");
+        System.out.println("数据库返回数据");
         return proceed;
     }
 

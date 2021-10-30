@@ -13,4 +13,6 @@ public interface BusinesssysService {
 
     List<Userinfo> selNameVal(String val);
     PageInfo<Userinfo> getCurrentPageUserInfo(Integer currentPage, Integer pageSize,String val);
+
+    int addUserInfo(Userinfo userinfo);
 }

@@ -1,5 +1,6 @@
 package com.example.autumn_valley_agriculture.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.example.autumn_valley_agriculture.pojo.Userinfo;
 import com.example.autumn_valley_agriculture.service.BusinesssysService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -8,6 +9,7 @@ import com.github.pagehelper.PageInfo;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -53,5 +55,18 @@ public class BusinesssysController {
     public PageInfo<Userinfo> refreshTo(Integer currentPage, Integer pageSize,String val){
         PageInfo<Userinfo> p = businesssysService.getCurrentPageUserInfo(currentPage, pageSize,val);
         return p;
+    }
+
+    @GetMapping("/adduserinfo/{res}")
+    public int addUserInfo(@PathVariable("res") String userinfo){
+        System.out.println(userinfo);
+        try {
+            Userinfo userinfo1 = JSON.parseObject(userinfo,Userinfo.class);
+            businesssysService.addUserInfo(userinfo1);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+        return 1;
     }
 }
