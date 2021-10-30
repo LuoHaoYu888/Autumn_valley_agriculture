@@ -4,6 +4,7 @@ import com.example.autumn_valley_agriculture.core.CacheKey;
 import com.example.autumn_valley_agriculture.core.RedisCache;
 import com.example.autumn_valley_agriculture.core.RemoveKey;
 import com.example.autumn_valley_agriculture.mapper.BusinesssysMapper;
+import com.example.autumn_valley_agriculture.pojo.Goodstype;
 import com.example.autumn_valley_agriculture.pojo.Userinfo;
 import com.example.autumn_valley_agriculture.service.BusinesssysService;
 import com.example.autumn_valley_agriculture.util.PageUtil;
@@ -58,5 +59,12 @@ public class BusinesssysServiceImpl implements BusinesssysService {
 //    @RemoveKey(CacheKey.HD_getUser)
     public int addUserInfo(Userinfo userinfo) {
         return businesssysMapper.addUserInfo(userinfo);
+    }
+
+    @Override
+    public PageInfo<Goodstype> getPageGoodstype(Integer currentPage, Integer pageSize) {
+        List<Userinfo> pGoodsType = businesssysMapper.getPGoodsType();
+        PageInfo page = new PageUtil<Userinfo>().getPage(currentPage, pageSize, pGoodsType);
+        return page;
     }
 }

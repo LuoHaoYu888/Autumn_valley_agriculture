@@ -1,6 +1,7 @@
 package com.example.autumn_valley_agriculture.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.example.autumn_valley_agriculture.pojo.Goodstype;
 import com.example.autumn_valley_agriculture.pojo.Userinfo;
 import com.example.autumn_valley_agriculture.service.BusinesssysService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -52,14 +53,20 @@ public class BusinesssysController {
     }
 
     @GetMapping("/refreshto")
-    public PageInfo<Userinfo> refreshTo(Integer currentPage, Integer pageSize,String val){
+    public PageInfo<Userinfo> refreshToU(Integer currentPage, Integer pageSize,String val){
         PageInfo<Userinfo> p = businesssysService.getCurrentPageUserInfo(currentPage, pageSize,val);
+        return p;
+    }
+
+    @GetMapping("/refreshToG")
+    public PageInfo<Goodstype> refreshToG(Integer currentPage, Integer pageSize){
+        System.out.println(currentPage+":"+pageSize);
+        PageInfo<Goodstype> p = businesssysService.getPageGoodstype(currentPage, pageSize);
         return p;
     }
 
     @GetMapping("/adduserinfo/{res}")
     public int addUserInfo(@PathVariable("res") String userinfo){
-        System.out.println(userinfo);
         try {
             Userinfo userinfo1 = JSON.parseObject(userinfo,Userinfo.class);
             businesssysService.addUserInfo(userinfo1);

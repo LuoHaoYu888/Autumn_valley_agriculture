@@ -1,5 +1,6 @@
 package com.example.autumn_valley_agriculture.service;
 
+import com.example.autumn_valley_agriculture.pojo.Goodstype;
 import com.example.autumn_valley_agriculture.pojo.Userinfo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.pagehelper.PageInfo;
@@ -15,4 +16,6 @@ public interface BusinesssysService {
     PageInfo<Userinfo> getCurrentPageUserInfo(Integer currentPage, Integer pageSize,String val);
 
     int addUserInfo(Userinfo userinfo);
+
+    PageInfo<Goodstype> getPageGoodstype(Integer currentPage, Integer pageSize);
 }

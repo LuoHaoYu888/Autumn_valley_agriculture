@@ -12,6 +12,9 @@
     <select id="getPuser" resultType="Userinfo">
         select * from userinfo
     </select>
+    <select id="getPGoodsType" resultType="Goodstype">
+        select * from goodstype
+    </select>
     <select id="selNameVal" resultType="Userinfo">
         select * from userinfo where name like concat('%',#{val},'%') or account like concat('%',#{val},'%')
     </select>
